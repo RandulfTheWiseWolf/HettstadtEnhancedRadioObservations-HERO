@@ -49,8 +49,11 @@ def cleanseAmplitude(line):
 filenames = ["azimut", "elevation", "Azimuth", "Elevationh"]
 savenames = ["Azimut", "Elevation", "Azimut-UFO", "Elevation-UFO"]
 
-
 filecounter=0
+
+Starts=[153.04, 67.42, 161.5, 44.57]
+Ends=[163.02, 57.42, 171.19, 34.6]
+
 
 for filename in filenames:
     i = 0
@@ -121,6 +124,10 @@ for filename in filenames:
     Daten = {'Frequenz':cleanFreqs,'Amplitude':flatAmps, 'Zeit(s)':ttimes,}
     df = pd.DataFrame(Daten, columns=['Frequenz','Amplitude','Zeit(s)'])
     
+    AbsGrad=abs(Ends[filecounter]-Starts[filecounter])
+    df['Grad']=df['Zeit(s)']*AbsGrad/df['Zeit(s)'][len(df['Zeit(s)'])-1]
+    
+    print(df['Grad'])
     finalsavename=savenames[filecounter]+"-Werte"
     print(type(finalsavename))
     df.to_csv(finalsavename)
