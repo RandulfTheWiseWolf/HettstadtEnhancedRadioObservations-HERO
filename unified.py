@@ -239,7 +239,7 @@ class TelescopeDrive(tk.Tk):
         
         
         ###Schedule 
-        tk.Label(self, text="Oberservation Schedule", font=("Verdana", 20)).place(relx=0.53, rely=0.245)
+        tk.Label(self, text="Observation Schedule", font=("Verdana", 20)).place(relx=0.53, rely=0.245)
         
         #Create Schedule input fields
         tk.Label(self, text="Right Ascension", font=("", 12)).place(relx=0.35, rely=0.29)
