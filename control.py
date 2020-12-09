@@ -10,6 +10,12 @@ import serial
 
 port = None
 
+#Coordinate offset for calibrate()
+#We define the offsets as the difference between the positions
+#of the measured solar maximum and the user supplied solar coordinates
+deltaAz = 0
+deltaEl = 0
+
 ###Flag to check if telescope is moving
 driving_flag = False
 
@@ -32,6 +38,8 @@ def send(data):
 def drive(az, el):
         global driving_flag
         driving_flag = True
+        #Uncomment this line when calibrate() is implemented
+        #send(f"<120/AZ_{az + deltaAz},EL_{el + deltaEl}")
         send(f"<120/AZ_{az},EL_{el}")
     
     
@@ -67,6 +75,7 @@ def readdata():
             el = float(data[len(data)-35:len(data)-29].decode())
             status = data[len(data)-4:len(data)-1].decode()
             
+            #return az - deltaAz, el - deltaEl, status
             return az, el, status
             
         except:
@@ -77,5 +86,6 @@ def readdata():
             el = float(data[len(data)-35:len(data)-29].decode())
             status = data[len(data)-4:len(data)-1].decode()
             
+            #return az - deltaAz, el - deltaEl, status
             return az, el, status
     
