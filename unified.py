@@ -51,6 +51,8 @@ class TelescopeDrive(tk.Tk):
         self.dataFrame = []
         
         #Coordinate offset for calibrate()
+        #We define the offsets as the difference between the positions
+        #of the measured solar maximum and the user supplied solar coordinates
         self.deltaAz = 0
         self.deltaEl = 0
         
