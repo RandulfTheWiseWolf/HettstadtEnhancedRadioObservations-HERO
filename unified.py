@@ -50,16 +50,6 @@ class TelescopeDrive(tk.Tk):
         #Pandas DataFrame for plots
         self.dataFrame = []
         
-        #Coordinate offset for calibrate()
-        #We define the offsets as the difference between the positions
-        #of the measured solar maximum and the user supplied solar coordinates
-        self.deltaAz = 0
-        self.deltaEl = 0
-        
-        def calibrate():
-            deltaAz = 0
-            deltaEl = 0
-        
         #Default Measurement Settings (centerFreq, span, videobandwidth, resolutionbandwidth, sweeptime)
         self.settings=[["1420000000",1420000000],["100000000",100000000],["1000000",1000000],["1000000",1000000],["1",1]]
         #Spectrograph ranges (centerFreq, span, videobandwidth, resolutionbandwidth, sweeptime)
