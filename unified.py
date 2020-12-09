@@ -250,7 +250,7 @@ class TelescopeDrive(tk.Tk):
         self.enterdecsched = gh.tEntry(self, std_text = "")
         self.enterdecsched.place(relx=0.35, rely=0.38)
         
-        tk.Label(self, text="Duration (s)", font=("", 12)).place(relx=0.52, rely=0.29)
+        tk.Label(self, text="Duration [s]", font=("", 12)).place(relx=0.52, rely=0.29)
         self.enterdursched = gh.tEntry(self, std_text = "")
         self.enterdursched.place(relx=0.52, rely=0.32)
         
